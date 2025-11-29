@@ -25,9 +25,9 @@
 
 <div align="center">
 
-![Home](https://github.com/Ritesh000001/SecureMe/data/Home.png)
+![Home](https://github.com/Ritesh000001/SecureMe/blob/main/data/Home.png)
 
-![Dashboard](https://github.com/Ritesh000001/SecureMe/data/Dashboard.png)
+![Dashboard](https://github.com/Ritesh000001/SecureMe/blob/main/data/Dashboard.png)
 
 </div>
 
@@ -60,7 +60,7 @@ This module allows users to lock/unlock local folders using OS-level ACL manipul
 
 <div align="center">
 
-![Folder Locker UI](https://github.com/Ritesh000001/SecureMe/data/Folder%20Lock.png)
+![Folder Locker UI](https://github.com/Ritesh000001/SecureMe/blob/main/data/Folder%20Lock.png)
 
 </div>
 
@@ -78,7 +78,7 @@ Stores encrypted credentials inside an offline Excel file.
 
 <div align="center">
 
-![Password Vault Module](https://github.com/Ritesh000001/SecureMe/data/PassVault.png)
+![Password Vault Module](https://github.com/Ritesh000001/SecureMe/blob/main/data/PassVault.png)
 
 </div>
 
@@ -96,7 +96,7 @@ Allows users to create encrypted .docx notes.
 
 <div align="center">
 
-![Notes Module](https://github.com/Ritesh000001/SecureMe/data/Notes.png)
+![Notes Module](https://github.com/Ritesh000001/SecureMe/blob/main/data/Notes%20(1).png)
 
 </div>
 
