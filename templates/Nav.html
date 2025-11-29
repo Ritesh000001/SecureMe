@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://images.icon-icons.com/1402/PNG/512/care-for-security_96913.png">
+  <title>SecureMe - {% block title %}{% endblock %}</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #181818;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar .logo {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #181818;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo img {
+      width: 10%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links .btn-home {
+      border: 2px solid #181818;
+      color: #181818;
+      background-color: #fff;
+    }
+
+    .nav-links .btn-home:hover {
+      background-color: #181818;
+      color: #fff;
+    }
+
+    .nav-links .btn-logout {
+      background-color: #181818;
+      color: #fff;
+      border: none;
+    }
+
+    .nav-links .btn-logout:hover {
+      background-color: #333;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1100px;
+      margin: 2rem auto;
+      flex: 1;
+    }
+
+    .flash-message {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #fff;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.9rem;
+      color: #6b7280;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% if session.get('authenticated') %}
+  <nav class="navbar">
+    <div class="logo">
+      <img src="https://images.icon-icons.com/1402/PNG/512/care-for-security_96913.png">
+      <h1>SecureMe</h1>
+    </div>
+    <div class="nav-links">
+      <a href="{{ url_for('Landing') }}" class="btn-home">Home</a>
+      <a href="{{ url_for('Logout') }}" class="btn-logout">Logout</a>
+    </div>
+  </nav>
+  {% endif %}
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div>
+      {% for m in messages %}
+      <div class="flash-message">{{ m }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </div>
+
+  <footer>
+    <small>SecureMe — local-only demo</small>
+  </footer>
+
+</body>
+
+</html>

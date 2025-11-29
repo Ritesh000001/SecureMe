@@ -1,0 +1,185 @@
+{% extends "Nav.html" %}
+{% block title %}Folder Locker{% endblock %}
+{% block content %}
+<style>
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    .locker-container {
+        max-width: 900px;
+        margin: 4rem auto;
+        background: #f8f8f8;
+        border-radius: 10px;
+        padding: 3rem 3.5rem;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e0e0e0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #000;
+        font-weight: 600;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #000;
+        font-size: 15px;
+        margin-bottom: 1.5rem;
+        transition: all 0.2s ease-in-out;
+        box-sizing: border-box;
+    }
+
+    input[type="text"]:focus {
+        border-color: #000;
+        outline: none;
+    }
+
+    .btn {
+        display: inline-block;
+        width: 48%;
+        text-align: center;
+        padding: 12px 0;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .lock-btn {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .unlock-btn {
+        background-color: transparent;
+        border: 2px solid #000;
+        color: #000;
+    }
+
+    .lock-btn:hover {
+        background-color: #333;
+    }
+
+    .unlock-btn:hover {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    p.message {
+        text-align: center;
+        color: #000;
+        background: #eaeaea;
+        border-radius: 6px;
+        padding: 10px 15px;
+        font-size: 14px;
+        margin-top: 1.2rem;
+        border: 1px solid #ccc;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2.5rem;
+        font-size: 14px;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background: #f0f0f0;
+        color: #000;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    tr:hover td {
+        background-color: #fafafa;
+    }
+
+    .status {
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .status.locked {
+        color: #d60000;
+    }
+
+    .status.unlocked {
+        color: #2b8a3e;
+    }
+</style>
+
+<div class="locker-container">
+    <h2>🗂 Folder Locker</h2>
+
+    <form method="POST">
+        <input type="text" name="folder_path" placeholder="Enter full folder path..." required />
+        <div class="btn-container">
+            <button type="submit" name="action" value="lock" class="btn lock-btn">
+                🔒 Lock Folder
+            </button>
+            <button type="submit" name="action" value="unlock" class="btn unlock-btn">
+                🔓 Unlock Folder
+            </button>
+        </div>
+    </form>
+
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <h3 style="margin-top:2.5rem; font-weight:600; font-size:1.2rem;">📜 Locked Folder Log</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Folder Path</th>
+                <th>Status</th>
+                <th>Date-Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in folders %}
+            <tr>
+                <td>{{ f.path }}</td>
+                <td class="status {% if f.status == 'Locked' %}locked{% else %}unlocked{% endif %}">
+                    {{ f.status }}
+                </td>
+                <td>{{ f.datetime }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" style="color:#777; text-align:center;">No entries found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

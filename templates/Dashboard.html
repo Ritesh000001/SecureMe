@@ -1,0 +1,152 @@
+{% extends "Nav.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<style>
+  .dashboard-container {
+    padding: 3rem 2rem;
+    background-color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #181818;
+    max-width: 1200px;
+    margin: 80px auto;
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-card {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .stat-card h6 {
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .stat-card h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-card p {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+  }
+
+  .card-arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #0369a1;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .card-arrow:hover {
+    transform: translateX(4px);
+  }
+
+  .table-container {
+    margin-top: 3rem;
+  }
+
+  .login-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .login-table th,
+  .login-table td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .login-table th {
+    background-color: #181818;
+    color: #fff;
+  }
+
+  .login-table tr:nth-child(even) {
+    background-color: #f4f4f4;
+  }
+
+  .login-table tr:hover {
+    background-color: #e0f2fe;
+  }
+</style>
+
+<div class="dashboard-container">
+
+  <div class="dashboard-header">
+    <h2>Dashboard Overview</h2>
+  </div>
+
+  <!-- === Stats Grid === -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h6>Locked Folders</h6>
+      <h3>{{ stats.locked_folders }}</h3>
+      <p>Folders secured via ACL</p>
+      <a href="{{ url_for('FolderLocker') }}" class="card-arrow">&#8594;</a>
+    </div>
+
+    <div class="stat-card">
+      <h6>Vault Entries</h6>
+      <h3>{{ stats.vault_entries }}</h3>
+      <p>Encrypted credentials</p>
+      <a href="{{ url_for('PasswordVault') }}" class="card-arrow">&#8594;</a>
+    </div>
+
+
+    <div class="stat-card">
+      <h6>Notes</h6>
+      <h3>{{ stats.notes }}</h3>
+      <p>Encrypted personal notes</p>
+      <a href="{{ url_for('notes_home') }}" class="card-arrow">&#8594;</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,148 @@
+{% block content %}
+
+<link rel="icon" type="image/png" sizes="32x32"
+  href="https://images.icon-icons.com/1402/PNG/512/care-for-security_96913.png">
+<title>SecureMe - Offline Security</title>
+<style>
+  .main-card {
+    margin-top: 90px;
+    max-width: 900px;
+    width: 100%;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (min-width: 768px) {
+    .main-card {
+      flex-direction: row;
+    }
+  }
+
+  .left-panel {
+    background-color: #181818;
+    color: #fff;
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left-panel h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  .left-panel ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .left-panel li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  /* Right panel: action area */
+  .right-panel {
+    background-color: #fff;
+    color: #181818;
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .right-panel h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+
+  .right-panel p {
+    color: #6b7280;
+    /* gray text */
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .btn-dark {
+    background-color: #181818;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-dark:hover {
+    background-color: #2c2c2c;
+  }
+
+  .btn-outline {
+    background-color: #fff;
+    color: #181818;
+    border: 2px solid #181818;
+  }
+
+  .btn-outline:hover {
+    background-color: #181818;
+    color: #fff;
+  }
+
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 0.5rem;
+  }
+</style>
+
+<div class="main-wrapper">
+  <div class="main-card">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <h2>Why SecureMe?</h2>
+      <ul>
+        <li>🔒 Lock and protect folders</li>
+        <li>🗝️ Store credentials securely</li>
+        <li>📝 Take private encrypted notes</li>
+        <li>💻 Works 100% offline</li>
+        <li>⚡ Simple & lightweight</li>
+      </ul>
+    </div>
+
+    <div class="right-panel">
+      <h2>SecureMe Access</h2>
+      <p>Manage your data securely — everything runs locally.</p>
+
+      {% if session.get('authenticated') %}
+      <a href="{{ url_for('dashboard') }}" class="btn btn-dark" style="margin-bottom:0.75rem;">Open Dashboard</a>
+      <a href="{{ url_for('Logout') }}" class="btn btn-outline">Logout</a>
+      {% else %}
+      {% if master_set %}
+      <a href="{{ url_for('Login') }}" class="btn btn-dark">Login</a>
+      {% else %}
+      <a href="{{ url_for('CreatePasskey') }}" class="btn btn-dark">Create Master Passkey</a>
+      {% endif %}
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

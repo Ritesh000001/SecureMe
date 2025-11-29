@@ -1,0 +1,4 @@
+/* static/css/style.css */
+body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.stat-card { border-radius: 12px; box-shadow: 0 6px 18px rgba(13, 38, 76, 0.06); }
+.card-subtitle { color: #6c757d; }
