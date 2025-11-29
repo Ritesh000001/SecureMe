@@ -25,9 +25,9 @@
 
 <div align="center">
 
-![Home](https://github.com/Amritanshu-404/SecureMe/blob/main/data/notes/Home.png)
+![Home](https://github.com/Ritesh000001/SecureMe/blob/main/data/notes/Home.png)
 
-![Dashboard](https://github.com/Amritanshu-404/SecureMe/blob/main/data/notes/Dashboard.png)
+![Dashboard](https://github.com/Ritesh000001/SecureMe/blob/main/data/notes/Dashboard.png)
 
 </div>
 
@@ -60,7 +60,7 @@ This module allows users to lock/unlock local folders using OS-level ACL manipul
 
 <div align="center">
 
-![Folder Locker UI](https://github.com/Amritanshu-404/SecureMe/blob/main/data/notes/Folder%20Lock.png)
+![Folder Locker UI](https://github.com/Ritesh000001/SecureMe/blob/main/data/notes/Folder%20Lock.png)
 
 </div>
 
@@ -78,7 +78,7 @@ Stores encrypted credentials inside an offline Excel file.
 
 <div align="center">
 
-![Password Vault Module](https://github.com/Amritanshu-404/SecureMe/blob/main/data/notes/PassVault.png)
+![Password Vault Module](https://github.com/Ritesh000001/SecureMe/blob/main/data/notes/PassVault.png)
 
 </div>
 
@@ -96,7 +96,7 @@ Allows users to create encrypted .docx notes.
 
 <div align="center">
 
-![Notes Module](https://github.com/Amritanshu-404/SecureMe/blob/main/data/notes/Notes.png)
+![Notes Module](https://github.com/Ritesh000001/SecureMe/blob/main/data/notes/Notes.png)
 
 </div>
 
@@ -237,7 +237,7 @@ SecureMe is designed for personal use and educational purposes. While we impleme
 
 ### Developed by:
 
-[Amritanshu Kumar](https://github.com/Amritanshu-404) & [Ritesh Singh Kushwaha](https://github.com/Ritesh000001)
+[Ritesh Singh Kushwaha](https://github.com/Ritesh000001) & [Amritanshu Kumar](https://github.com/Amritanshu-404)
 
 </div>
 
@@ -247,9 +247,9 @@ SecureMe is designed for personal use and educational purposes. While we impleme
 
 Found a bug? Have a suggestion? We'd love to hear from you!
 
-- 🐛 [Report Issues](https://github.com/Amritanshu-404/SecureMe/issues)
-- 💡 [Request Features](https://github.com/Amritanshu-404/SecureMe/issues/new)
-- ⭐ [Star this Repository](https://github.com/Amritanshu-404/SecureMe)
+- 🐛 [Report Issues](https://github.com/Ritesh000001/SecureMe/issues)
+- 💡 [Request Features](https://github.com/Ritesh000001/SecureMe/issues/new)
+- ⭐ [Star this Repository](https://github.com/Ritesh000001/SecureMe)
 
 ---
 
